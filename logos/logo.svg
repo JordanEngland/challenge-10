@@ -1,9 +1,0 @@
-
-  <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
-  <style>
-    svg { width: 300px; height: 200px; }
-  </style>
-  <circle cx="150" cy="100" r="50" fill="black" />
-  <text x="150" y="100" text-anchor="middle" fill="White">JME</text>
-</svg>
-  

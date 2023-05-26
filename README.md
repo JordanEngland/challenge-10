@@ -1,29 +1,100 @@
-# SVG Logo maker
+# challenge-10
+# 10 Object-oriented Programming: SVG Logo Maker
 
+## Your Task
 
-## Description
-In this project, I built a command-line application using Node.js that allows users to generate a simple logo and save it as an SVG file. The application prompts the user to select a color and shape, provide text for the logo, and then creates an SVG file based on the user's input. Throughout the development of this project, I gained several key learnings. First, I deepened my understanding of object-oriented programming principles by implementing classes for different shapes and leveraging inheritance to share common functionality. This allowed for cleaner and more organized code structure. I learned how to control the positioning and appearance of shapes and text within an SVG using attributes like viewBox and text-anchor. This knowledge can be extended to other SVG-based projects in the future. I also became familiar with command-line input handling using Inquirer, enabling a user-friendly interface for gathering input from the user. This experience will be valuable for building future command-line applications that require user interaction. Overall, this project provided me with practical experience in OOP, SVG manipulation, and command-line application development, enhancing my skill for the future.
+Your task is to build a Node.js command-line application that takes in user input to generate a logo and save it as an [SVG file](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics). The application prompts the user to select a color and shape, provide text for the logo, and save the generated SVG to a `.svg` file.
 
+Because this application won’t be deployed, you’ll need to provide a link to a walkthrough video that demonstrates its functionality and passes all of the tests. You’ll need to submit a link to the video **and** add it to the README of your project.
 
-## Table of Contents
+Refer to the [Video Submission Guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) on the Full-Stack Blog for additional guidance on creating a video.
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Questions](#questions)
+> **Note**: There is no starter code for this assignment.
+### User Story
 
-## Installation
+```md
+AS a freelance web developer
+I WANT to generate a simple logo for my projects
+SO THAT I don't have to pay a graphic designer
+```
 
-Open one of the links Provided
+## Acceptance Criteria
 
-repo-https://github.com/JordanEngland/challenge-10
+```md
+GIVEN a command-line application that accepts user input
+WHEN I am prompted for text
+THEN I can enter up to three characters
+WHEN I am prompted for the text color
+THEN I can enter a color keyword (OR a hexadecimal number)
+WHEN I am prompted for a shape
+THEN I am presented with a list of shapes to choose from: circle, triangle, and square
+WHEN I am prompted for the shape's color
+THEN I can enter a color keyword (OR a hexadecimal number)
+WHEN I have entered input for all the prompts
+THEN an SVG file is created named `logo.svg`
+AND the output text "Generated logo.svg" is printed in the command line
+WHEN I open the `logo.svg` file in a browser
+THEN I am shown a 300x200 pixel image that matches the criteria I entered
+```
 
-video on how to use-
+## Mock-Up
 
-## Usage
+The following image shows a mock-up of the generated SVG given the following input entered by the user: `SVG` for the text, `white` for the text color, `circle` from the list of shapes, and `green` for the shape color. Note that this is just an image of the output SVG and not the SVG file itself:
 
-To use this project open the terminal and type in node server.js and follow the prompts. Once the you have gone through the prompts go to the logo folder and open the file in the browser to see the SVG logo.
+![Image showing a green circle with white text that reads "SVG.".](./Images/10-oop-homework-demo.png)
 
+## Additional Requirements
 
-## Questions
+This Challenge combines many of the skills covered so far. In addition to the User Story and Acceptance Criteria, we’ve provided some guidelines to help you get started.
 
-If you have any questions, please contact me at Lcplengland@gmail.com. You can also check out my [GitHub profile](https://github.com/JordanEngland).
+Because this Challenge requires a video submission, refer to the [Full-Stack Blog video submission guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) for guidance on creating and sharing a video.
+
+Your application should use [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer/v/8.2.4) for collecting input from the user. The application will be invoked by using the following command:
+
+```bash
+node index.js
+```
+
+It is recommended that you start with a directory structure that looks like the following example:
+
+```md
+.  
+├── examples/           // Example svg file(s) created with the app
+├── lib/                // Folder for classes or functions
+    ├── shapes.js       // Exports `Triangle`, `Circle`, and `Square` classes
+    ├── shapes.test.js  // Jest tests for shapes
+    └── more...         // Additional files and tests
+├── .gitignore          // Indicates which folders and files Git should ignore
+├── index.js            // Runs the application using imports from lib/
+├── package.json
+└── README.md           // App description, link to video, setup and usage instructions           
+```
+
+> **Important**: Make sure that you remove `dist` from the `.gitignore` file so that Git will track this folder and include it when you push up to your application's repository.
+The application must include `Triangle`, `Circle`, and `Square` classes, as well as tests for each of these classes using Jest. While not a requirement, it is recommended that you place any common functionality and properties shared by the `Triangle`, `Circle`, and `Square` classes in a parent `Shape` class and use inheritance to reuse the code in the child classes.
+
+Each shape class should be tested for a `render()` method that returns a string for the corresponding SVG file with the given shape color.
+
+The following example test should pass:
+
+```js
+const shape = new Triangle();
+shape.setColor("blue");
+expect(shape.render()).toEqual('<polygon points="150, 18 244, 182 56, 182" fill="blue" />');
+```
+
+You may need to add additional files in the `lib` folder for handling user input, writing to a file, etc. Writing tests for these additional files is **optional**.
+
+## Helpful SVG Resources
+
+* [Example SVG](https://static.fullstack-bootcamp.com/fullstack-ground/module-10/circle.svg)
+
+* [Scalable Vector Graphics (SVG)](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics)
+
+* [SVG tutorial](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial)
+
+* [Basic SVG shapes](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes)
+
+* [Text in SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Texts)
+
+* [SVG VS Code extension](https://marketplace.visualstudio.com/items?itemName=jock.svg)
